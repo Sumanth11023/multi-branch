@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            when{
+                branch "main"
+            }
+            steps {
+                echo "scm ....."
+            }
+        }
+        
+        stage('main') {
+            when{
+                branch "develop"
+            }
+            steps {
+                echo "build ....."
+            }
+        }
+    }
+}
